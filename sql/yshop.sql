@@ -17,47 +17,47 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `yshop`
+-- Database: yshop
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `adminuser`
+-- 表的结构 adminuser
 --
 
-CREATE TABLE `adminuser` (
-  `uid` int(11) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `minventory` int(11) NOT NULL
+CREATE TABLE adminuser (
+  uid int(11) NOT NULL,
+  username varchar(255) DEFAULT NULL,
+  password varchar(255) DEFAULT NULL,
+  minventory int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `adminuser`
+-- 转存表中的数据 adminuser
 --
 
-INSERT INTO `adminuser` (`uid`, `username`, `password`, `minventory`) VALUES
+INSERT INTO adminuser (uid, username, password, minventory) VALUES
 (1, 'admin', 'admin', 50);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `category`
+-- 表的结构 category
 --
 
-CREATE TABLE `category` (
-  `cid` int(11) NOT NULL,
-  `cname` varchar(255) DEFAULT NULL,
-  `discount` float DEFAULT NULL,
-  `privilegeTime` datetime NOT NULL COMMENT '优惠时间'
+CREATE TABLE category (
+  cid int(11) NOT NULL,
+  cname varchar(255) DEFAULT NULL,
+  discount float DEFAULT NULL,
+  privilegeTime datetime NOT NULL COMMENT '优惠时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `category`
+-- 转存表中的数据 category
 --
 
-INSERT INTO `category` (`cid`, `cname`, `discount`, `privilegeTime`) VALUES
+INSERT INTO category (cid, cname, discount, privilegeTime) VALUES
 (1, '女装男装', 0.8, '2016-12-06 00:00:00'),
 (2, '鞋靴箱包', 0.5, '2016-12-06 00:00:00'),
 (3, '日常生活用品', 1, '2016-11-28 00:00:00'),
@@ -69,20 +69,20 @@ INSERT INTO `category` (`cid`, `cname`, `discount`, `privilegeTime`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `categorysecond`
+-- 表的结构 categorysecond
 --
 
-CREATE TABLE `categorysecond` (
-  `csid` int(11) NOT NULL,
-  `csname` varchar(255) DEFAULT NULL,
-  `cid` int(11) DEFAULT NULL
+CREATE TABLE categorysecond (
+  csid int(11) NOT NULL,
+  csname varchar(255) DEFAULT NULL,
+  cid int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `categorysecond`
+-- 转存表中的数据 categorysecond
 --
 
-INSERT INTO `categorysecond` (`csid`, `csname`, `cid`) VALUES
+INSERT INTO categorysecond (csid, csname, cid) VALUES
 (1, '潮流女装', 1),
 (2, '初冬羽绒', 1),
 (3, '毛呢大衣', 1),
@@ -122,22 +122,22 @@ INSERT INTO `categorysecond` (`csid`, `csname`, `cid`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `orderitem`
+-- 表的结构 orderitem
 --
 
-CREATE TABLE `orderitem` (
-  `itemid` int(11) NOT NULL,
-  `count` int(11) DEFAULT NULL,
-  `subtotal` float DEFAULT NULL,
-  `oid` int(11) DEFAULT NULL,
-  `pid` int(11) DEFAULT NULL
+CREATE TABLE orderitem (
+  itemid int(11) NOT NULL,
+  count int(11) DEFAULT NULL,
+  subtotal float DEFAULT NULL,
+  oid int(11) DEFAULT NULL,
+  pid int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `orderitem`
+-- 转存表中的数据 orderitem
 --
 
-INSERT INTO `orderitem` (`itemid`, `count`, `subtotal`, `oid`, `pid`) VALUES
+INSERT INTO orderitem (itemid, count, subtotal, oid, pid) VALUES
 (1, 3, 249, 1, 71),
 (2, 1, 358, 2, 51),
 (3, 1, 18000, 3, 94),
@@ -270,25 +270,25 @@ INSERT INTO `orderitem` (`itemid`, `count`, `subtotal`, `oid`, `pid`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `orders`
+-- 表的结构 orders
 --
 
-CREATE TABLE `orders` (
-  `oid` int(11) NOT NULL,
-  `addr` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `ordertime` datetime DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `state` int(11) DEFAULT NULL,
-  `total` float DEFAULT NULL,
-  `uid` int(11) DEFAULT NULL
+CREATE TABLE orders (
+  oid int(11) NOT NULL,
+  addr varchar(255) DEFAULT NULL,
+  name varchar(255) DEFAULT NULL,
+  ordertime datetime DEFAULT NULL,
+  phone varchar(255) DEFAULT NULL,
+  state int(11) DEFAULT NULL,
+  total float DEFAULT NULL,
+  uid int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `orders`
+-- 转存表中的数据 orders
 --
 
-INSERT INTO `orders` (`oid`, `addr`, `name`, `ordertime`, `phone`, `state`, `total`, `uid`) VALUES
+INSERT INTO orders (oid, addr, name, ordertime, phone, state, total, uid) VALUES
 (1, 'dfd', 'admin', '2016-11-22 23:55:55', 'dffds', 1, 249, 38),
 (2, 'dfd', 'admin', '2016-11-22 23:57:50', 'dffds', 1, 358, 38),
 (3, 'dfd', 'admin', '2016-11-23 16:58:05', 'dffds', 1, 18000, 38),
@@ -475,45 +475,45 @@ INSERT INTO `orders` (`oid`, `addr`, `name`, `ordertime`, `phone`, `state`, `tot
 -- --------------------------------------------------------
 
 --
--- 表的结构 `packet`
+-- 表的结构 packet
 --
 
-CREATE TABLE `packet` (
-  `pacid` int(11) NOT NULL COMMENT '卡包编号',
-  `uid` int(11) NOT NULL COMMENT '客户编号'
+CREATE TABLE packet (
+  pacid int(11) NOT NULL COMMENT '卡包编号',
+  uid int(11) NOT NULL COMMENT '客户编号'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='卡包表';
 
 --
--- 转存表中的数据 `packet`
+-- 转存表中的数据 packet
 --
 
-INSERT INTO `packet` (`pacid`, `uid`) VALUES
+INSERT INTO packet (pacid, uid) VALUES
 (1, 39);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `product`
+-- 表的结构 product
 --
 
-CREATE TABLE `product` (
-  `pid` int(11) NOT NULL,
-  `pname` varchar(255) DEFAULT NULL,
-  `market_price` float DEFAULT NULL,
-  `shop_price` float DEFAULT NULL,
-  `inventory` int(5) NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `pdesc` varchar(255) DEFAULT NULL,
-  `is_hot` int(11) DEFAULT NULL,
-  `pdate` datetime DEFAULT NULL,
-  `csid` int(11) DEFAULT NULL
+CREATE TABLE product (
+  pid int(11) NOT NULL,
+  pname varchar(255) DEFAULT NULL,
+  market_price float DEFAULT NULL,
+  shop_price float DEFAULT NULL,
+  inventory int(5) NOT NULL,
+  image varchar(255) DEFAULT NULL,
+  pdesc varchar(255) DEFAULT NULL,
+  is_hot int(11) DEFAULT NULL,
+  pdate datetime DEFAULT NULL,
+  csid int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `product`
+-- 转存表中的数据 product
 --
 
-INSERT INTO `product` (`pid`, `pname`, `market_price`, `shop_price`, `inventory`, `image`, `pdesc`, `is_hot`, `pdate`, `csid`) VALUES
+INSERT INTO product (pid, pname, market_price, shop_price, inventory, image, pdesc, is_hot, pdate, csid) VALUES
 (1, 'uquw5sGsw7G807rxw6vSwsWuzeLM1w==', 558, 228, 198, 'products/1/cs10001.jpg', '?11??200???????????????????????????????????????????????????????????????????????????????????????????????????????', 1, '2014-11-02 20:18:00', 1),
 (2, '冬装韩版女装翻领羔绒夹棉格子毛呢外套', 436, 172, 40, 'products/1/cs10002.jpg', '????????????????12??10????????????????????~??????12?11???? ???? ????????? ?????????? ?????????? ?? ?? ??????????? ??????? ????????????? ?????????', 0, '2016-12-05 00:46:22', 1),
 (3, '冬装韩版女装翻领羔绒夹棉格子毛呢外套', 238, 119, 197, 'products/1/cs10003.jpg', '???? ???????? ?????????????????? ?????????????? ???????????? ?????????????????? ???????????????????? ?????????????', 0, '2014-10-01 20:18:00', 1),
@@ -616,50 +616,50 @@ INSERT INTO `product` (`pid`, `pname`, `market_price`, `shop_price`, `inventory`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ticket`
+-- 表的结构 ticket
 --
 
-CREATE TABLE `ticket` (
-  `tid` int(11) NOT NULL COMMENT '优惠券编号',
-  `privilege` double NOT NULL COMMENT '优惠券金额',
-  `consume` double NOT NULL COMMENT '满减金额',
-  `useTime` datetime NOT NULL COMMENT '使用期限',
-  `cid` int(11) NOT NULL COMMENT '类别编号',
-  `pacid` int(11) NOT NULL COMMENT '卡包编号'
+CREATE TABLE ticket (
+  tid int(11) NOT NULL COMMENT '优惠券编号',
+  privilege double NOT NULL COMMENT '优惠券金额',
+  consume double NOT NULL COMMENT '满减金额',
+  useTime datetime NOT NULL COMMENT '使用期限',
+  cid int(11) NOT NULL COMMENT '类别编号',
+  pacid int(11) NOT NULL COMMENT '卡包编号'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='优惠券表';
 
 --
--- 转存表中的数据 `ticket`
+-- 转存表中的数据 ticket
 --
 
-INSERT INTO `ticket` (`tid`, `privilege`, `consume`, `useTime`, `cid`, `pacid`) VALUES
+INSERT INTO ticket (tid, privilege, consume, useTime, cid, pacid) VALUES
 (1, 20, 199, '2016-12-27 00:00:00', 2, 1),
 (2, 20, 1000, '2016-12-27 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user`
+-- 表的结构 user
 --
 
-CREATE TABLE `user` (
-  `uid` int(11) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `age` int(5) DEFAULT NULL,
-  `addr` varchar(255) DEFAULT NULL,
-  `state` int(11) DEFAULT NULL,
-  `code` varchar(64) DEFAULT NULL
+CREATE TABLE user (
+  uid int(11) NOT NULL,
+  username varchar(255) DEFAULT NULL,
+  password varchar(255) DEFAULT NULL,
+  name varchar(255) DEFAULT NULL,
+  email varchar(255) DEFAULT NULL,
+  phone varchar(255) DEFAULT NULL,
+  age int(5) DEFAULT NULL,
+  addr varchar(255) DEFAULT NULL,
+  state int(11) DEFAULT NULL,
+  code varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 转存表中的数据 `user`
+-- 转存表中的数据 user
 --
 
-INSERT INTO `user` (`uid`, `username`, `password`, `name`, `email`, `phone`, `age`, `addr`, `state`, `code`) VALUES
+INSERT INTO user (uid, username, password, name, email, phone, age, addr, state, code) VALUES
 (1, 'root', 'root', 'root', 'root@qq.com', '15566778899', NULL, '?????г??', 1, '34324232321'),
 (2, 'zwb', 'zwb', 'zwb', 'zwb@live.com', '13344556677', NULL, '?ߺ???߮????', 1, '34324232322'),
 (38, 'admin', '123456', 'fs', '479258585@qq.com', 'dffds', NULL, 'dfd', 1, '78b088e3fcd04696aee737cbd70d15a26b515ee01c3f4cdb9942016bfa25efe7'),
@@ -667,30 +667,30 @@ INSERT INTO `user` (`uid`, `username`, `password`, `name`, `email`, `phone`, `ag
 (40, 'Yuan', '666666', '', 'm18814128406@163.com', '', 20, 'LuFeng', 1, 'b594e8e7b2d944229ad9782739044c71276f3ea825ba4a0fb586e6aece2df05f');
 
 --
--- 触发器 `user`
+-- 触发器 user
 --
 DELIMITER $$
-CREATE TRIGGER `u_afterinsert` AFTER INSERT ON `user` FOR EACH ROW insert into wallet(uid) values (new.uid)
+CREATE TRIGGER u_afterinsert AFTER INSERT ON user FOR EACH ROW insert into wallet(uid) values (new.uid)
 $$
 DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `wallet`
+-- 表的结构 wallet
 --
 
-CREATE TABLE `wallet` (
-  `wid` int(11) NOT NULL,
-  `money` float NOT NULL,
-  `uid` int(11) DEFAULT NULL
+CREATE TABLE wallet (
+  wid int(11) NOT NULL,
+  money float NOT NULL,
+  uid int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `wallet`
+-- 转存表中的数据 wallet
 --
 
-INSERT INTO `wallet` (`wid`, `money`, `uid`) VALUES
+INSERT INTO wallet (wid, money, uid) VALUES
 (1, 67575.5, 38),
 (2, 663447, 39),
 (3, 0, 40);
@@ -698,19 +698,19 @@ INSERT INTO `wallet` (`wid`, `money`, `uid`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `warn`
+-- 表的结构 warn
 --
 
-CREATE TABLE `warn` (
-  `mid` int(5) NOT NULL DEFAULT '0',
-  `minventory` int(11) DEFAULT NULL
+CREATE TABLE warn (
+  mid int(5) NOT NULL DEFAULT '0',
+  minventory int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `warn`
+-- 转存表中的数据 warn
 --
 
-INSERT INTO `warn` (`mid`, `minventory`) VALUES
+INSERT INTO warn (mid, minventory) VALUES
 (1, 50);
 
 --
@@ -718,183 +718,183 @@ INSERT INTO `warn` (`mid`, `minventory`) VALUES
 --
 
 --
--- Indexes for table `adminuser`
+-- Indexes for table adminuser
 --
-ALTER TABLE `adminuser`
-  ADD PRIMARY KEY (`uid`);
+ALTER TABLE adminuser
+  ADD PRIMARY KEY (uid);
 
 --
--- Indexes for table `category`
+-- Indexes for table category
 --
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`cid`);
+ALTER TABLE category
+  ADD PRIMARY KEY (cid);
 
 --
--- Indexes for table `categorysecond`
+-- Indexes for table categorysecond
 --
-ALTER TABLE `categorysecond`
-  ADD PRIMARY KEY (`csid`),
-  ADD KEY `FK936FCAF21DB1FD15` (`cid`);
+ALTER TABLE categorysecond
+  ADD PRIMARY KEY (csid),
+  ADD KEY FK936FCAF21DB1FD15 (cid);
 
 --
--- Indexes for table `orderitem`
+-- Indexes for table orderitem
 --
-ALTER TABLE `orderitem`
-  ADD PRIMARY KEY (`itemid`),
-  ADD KEY `FK_j20ulwn7395herx5fobexsp9r` (`oid`),
-  ADD KEY `FK_fesqehk2fei30hu4isqgmm36f` (`pid`);
+ALTER TABLE orderitem
+  ADD PRIMARY KEY (itemid),
+  ADD KEY FK_j20ulwn7395herx5fobexsp9r (oid),
+  ADD KEY FK_fesqehk2fei30hu4isqgmm36f (pid);
 
 --
--- Indexes for table `orders`
+-- Indexes for table orders
 --
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`oid`),
-  ADD KEY `FK_tk1pibf08nelmar48icf0w8jn` (`uid`);
+ALTER TABLE orders
+  ADD PRIMARY KEY (oid),
+  ADD KEY FK_tk1pibf08nelmar48icf0w8jn (uid);
 
 --
--- Indexes for table `packet`
+-- Indexes for table packet
 --
-ALTER TABLE `packet`
-  ADD PRIMARY KEY (`pacid`),
-  ADD UNIQUE KEY `UK_th5acal46shrmg0fotogxoq3y` (`uid`),
-  ADD KEY `FK_th5acal46shrmg0fotogxoq3y` (`uid`);
+ALTER TABLE packet
+  ADD PRIMARY KEY (pacid),
+  ADD UNIQUE KEY UK_th5acal46shrmg0fotogxoq3y (uid),
+  ADD KEY FK_th5acal46shrmg0fotogxoq3y (uid);
 
 --
--- Indexes for table `product`
+-- Indexes for table product
 --
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`pid`),
-  ADD KEY `FKED8DCCEFB9B74E02` (`csid`);
+ALTER TABLE product
+  ADD PRIMARY KEY (pid),
+  ADD KEY FKED8DCCEFB9B74E02 (csid);
 
 --
--- Indexes for table `ticket`
+-- Indexes for table ticket
 --
-ALTER TABLE `ticket`
-  ADD PRIMARY KEY (`tid`),
-  ADD UNIQUE KEY `UK_bveamlrms7iguexr6uteopdo9` (`cid`),
-  ADD KEY `FK_bveamlrms7iguexr6uteopdo9` (`cid`),
-  ADD KEY `FK_13jp9b8h01m4bimt122eyhtjj` (`pacid`);
+ALTER TABLE ticket
+  ADD PRIMARY KEY (tid),
+  ADD UNIQUE KEY UK_bveamlrms7iguexr6uteopdo9 (cid),
+  ADD KEY FK_bveamlrms7iguexr6uteopdo9 (cid),
+  ADD KEY FK_13jp9b8h01m4bimt122eyhtjj (pacid);
 
 --
--- Indexes for table `user`
+-- Indexes for table user
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`uid`);
+ALTER TABLE user
+  ADD PRIMARY KEY (uid);
 
 --
--- Indexes for table `wallet`
+-- Indexes for table wallet
 --
-ALTER TABLE `wallet`
-  ADD PRIMARY KEY (`wid`),
-  ADD UNIQUE KEY `UK_gd56wkq3b1wc4gd068p6iwsq` (`uid`);
+ALTER TABLE wallet
+  ADD PRIMARY KEY (wid),
+  ADD UNIQUE KEY UK_gd56wkq3b1wc4gd068p6iwsq (uid);
 
 --
--- Indexes for table `warn`
+-- Indexes for table warn
 --
-ALTER TABLE `warn`
-  ADD PRIMARY KEY (`mid`);
+ALTER TABLE warn
+  ADD PRIMARY KEY (mid);
 
 --
 -- 在导出的表使用AUTO_INCREMENT
 --
 
 --
--- 使用表AUTO_INCREMENT `adminuser`
+-- 使用表AUTO_INCREMENT adminuser
 --
-ALTER TABLE `adminuser`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE adminuser
+  MODIFY uid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- 使用表AUTO_INCREMENT `category`
+-- 使用表AUTO_INCREMENT category
 --
-ALTER TABLE `category`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE category
+  MODIFY cid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- 使用表AUTO_INCREMENT `categorysecond`
+-- 使用表AUTO_INCREMENT categorysecond
 --
-ALTER TABLE `categorysecond`
-  MODIFY `csid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+ALTER TABLE categorysecond
+  MODIFY csid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
--- 使用表AUTO_INCREMENT `orderitem`
+-- 使用表AUTO_INCREMENT orderitem
 --
-ALTER TABLE `orderitem`
-  MODIFY `itemid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+ALTER TABLE orderitem
+  MODIFY itemid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 --
--- 使用表AUTO_INCREMENT `orders`
+-- 使用表AUTO_INCREMENT orders
 --
-ALTER TABLE `orders`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+ALTER TABLE orders
+  MODIFY oid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 --
--- 使用表AUTO_INCREMENT `packet`
+-- 使用表AUTO_INCREMENT packet
 --
-ALTER TABLE `packet`
-  MODIFY `pacid` int(11) NOT NULL AUTO_INCREMENT COMMENT '卡包编号', AUTO_INCREMENT=2;
+ALTER TABLE packet
+  MODIFY pacid int(11) NOT NULL AUTO_INCREMENT COMMENT '卡包编号', AUTO_INCREMENT=2;
 --
--- 使用表AUTO_INCREMENT `product`
+-- 使用表AUTO_INCREMENT product
 --
-ALTER TABLE `product`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+ALTER TABLE product
+  MODIFY pid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 --
--- 使用表AUTO_INCREMENT `ticket`
+-- 使用表AUTO_INCREMENT ticket
 --
-ALTER TABLE `ticket`
-  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT COMMENT '优惠券编号', AUTO_INCREMENT=3;
+ALTER TABLE ticket
+  MODIFY tid int(11) NOT NULL AUTO_INCREMENT COMMENT '优惠券编号', AUTO_INCREMENT=3;
 --
--- 使用表AUTO_INCREMENT `user`
+-- 使用表AUTO_INCREMENT user
 --
-ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+ALTER TABLE user
+  MODIFY uid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
--- 使用表AUTO_INCREMENT `wallet`
+-- 使用表AUTO_INCREMENT wallet
 --
-ALTER TABLE `wallet`
-  MODIFY `wid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE wallet
+  MODIFY wid int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- 限制导出的表
 --
 
 --
--- 限制表 `categorysecond`
+-- 限制表 categorysecond
 --
-ALTER TABLE `categorysecond`
-  ADD CONSTRAINT `FK936FCAF21DB1FD15` FOREIGN KEY (`cid`) REFERENCES `category` (`cid`);
+ALTER TABLE categorysecond
+  ADD CONSTRAINT FK936FCAF21DB1FD15 FOREIGN KEY (cid) REFERENCES category (cid);
 
 --
--- 限制表 `orderitem`
+-- 限制表 orderitem
 --
-ALTER TABLE `orderitem`
-  ADD CONSTRAINT `FK_fesqehk2fei30hu4isqgmm36f` FOREIGN KEY (`pid`) REFERENCES `product` (`pid`),
-  ADD CONSTRAINT `FK_j20ulwn7395herx5fobexsp9r` FOREIGN KEY (`oid`) REFERENCES `orders` (`oid`);
+ALTER TABLE orderitem
+  ADD CONSTRAINT FK_fesqehk2fei30hu4isqgmm36f FOREIGN KEY (pid) REFERENCES product (pid),
+  ADD CONSTRAINT FK_j20ulwn7395herx5fobexsp9r FOREIGN KEY (oid) REFERENCES orders (oid);
 
 --
--- 限制表 `orders`
+-- 限制表 orders
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `FK_tk1pibf08nelmar48icf0w8jn` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`);
+ALTER TABLE orders
+  ADD CONSTRAINT FK_tk1pibf08nelmar48icf0w8jn FOREIGN KEY (uid) REFERENCES user (uid);
 
 --
--- 限制表 `packet`
+-- 限制表 packet
 --
-ALTER TABLE `packet`
-  ADD CONSTRAINT `FK_th5acal46shrmg0fotogxoq3y` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`);
+ALTER TABLE packet
+  ADD CONSTRAINT FK_th5acal46shrmg0fotogxoq3y FOREIGN KEY (uid) REFERENCES user (uid);
 
 --
--- 限制表 `product`
+-- 限制表 product
 --
-ALTER TABLE `product`
-  ADD CONSTRAINT `FKED8DCCEFB9B74E02` FOREIGN KEY (`csid`) REFERENCES `categorysecond` (`csid`);
+ALTER TABLE product
+  ADD CONSTRAINT FKED8DCCEFB9B74E02 FOREIGN KEY (csid) REFERENCES categorysecond (csid);
 
 --
--- 限制表 `ticket`
+-- 限制表 ticket
 --
-ALTER TABLE `ticket`
-  ADD CONSTRAINT `FK_13jp9b8h01m4bimt122eyhtjj` FOREIGN KEY (`pacid`) REFERENCES `packet` (`pacid`),
-  ADD CONSTRAINT `FK_bveamlrms7iguexr6uteopdo9` FOREIGN KEY (`cid`) REFERENCES `category` (`cid`);
+ALTER TABLE ticket
+  ADD CONSTRAINT FK_13jp9b8h01m4bimt122eyhtjj FOREIGN KEY (pacid) REFERENCES packet (pacid),
+  ADD CONSTRAINT FK_bveamlrms7iguexr6uteopdo9 FOREIGN KEY (cid) REFERENCES category (cid);
 
 --
--- 限制表 `wallet`
+-- 限制表 wallet
 --
-ALTER TABLE `wallet`
-  ADD CONSTRAINT `wallet_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`);
+ALTER TABLE wallet
+  ADD CONSTRAINT wallet_ibfk_1 FOREIGN KEY (uid) REFERENCES user (uid);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
